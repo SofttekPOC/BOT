@@ -12,7 +12,7 @@ exports.hi = (sender) => {
 };
 
 exports.help = (sender) => {
-    messenger.send({text: `You can ask me questions like "H-E-B in Monterrey", "Stores in Monterrey"`}, sender);
+    messenger.send({text: `You can ask me questions like "H-E-B in Monterrey" and "Stores in Monterrey"`}, sender);
 };
 
 exports.searchSucursal_City = (sender, values) => {        
