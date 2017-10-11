@@ -25,7 +25,7 @@ let login = () => {
     });
 };
 
-/*let createCase2 = (customerName, customerId) => {
+let createCase2 = (customerName, customerId) => {
     return new Promise((resolve, reject) => {
         let c = nforce.createSObject('Case');
         c.set('subject', `Queja de usuario ${customerName} (Facebook Customer)`);
@@ -131,35 +131,3 @@ exports.createCase2 = createCase2;
 exports.createQuiz = createQuiz;
 exports.findSucursal = findSucursal;
 exports.searchProducts = searchProducts;
-//End HEB Code ************************** End HEB Code*/
-
-let createSurvey = (answers, customerName, customerId, addCom) => {
-    return new Promise((resolve, reject) => {
-	if(addCom == 1){
-            let c = nforce.createSObject('Quiz__c');
-	    c.set('facebook_username__c', customerName);
-	    c.set('TAL_Question_1__c', answers[1]);
-	    c.set('TAL_Question_2__c', answers[2]);
-	    c.set('TAL_Question_3__c', answers[3]);
-	    c.set('TAL_Question_4__c', answers[4]);
-	    c.set('TAL_Question_5__c', answers[5]);
-    	    if(answers[6] != ''){
-    	         c.set('TAL_Question_6__c', answers[6]);
-    	    }
-            org.insert({sobject: c}, err => {
-                if(err){
-                    console.error(err);
-                    reject("An error occurred while creating a survey");
-                } else {
-                    resolve(c);
-                }
-            });
-	}
-    });
-};
-
-login();
-
-exports.org = org;
-exports.createSurvey = createSurvey;
-//End Tate And Lyle Code ************************** End Tate And Lyle Code*/
